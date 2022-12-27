@@ -1,0 +1,6 @@
+server:
+  port: 8080
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://ConsultantTp:ConsultantTp@consultanttp.nctwuzn.mongodb.net/ConsultantTp?retryWrites=true&w=majority
