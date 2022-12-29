@@ -1,0 +1,41 @@
+<div  ngForm #formref="ngForm" (ngSubmit)="SubmitForm()" class="add-edit-consultant">
+  <h3 *ngIf="defaultValues === null">Add a consultant</h3>
+  <h3 *ngIf="defaultValues !== null">Update a consultant</h3>
+  <p>Insert the consultant data</p>
+  <a *ngIf="defaultValues === null" routerLink="/consultants"><img class="small-img" src="/assets/images/billet.png" alt=""></a>
+  <form action="submit">
+    <div class="input-form">
+      <label for="name" >Name:</label>
+      <input placeholder="Name..." [(ngModel)]="formData.name" #nameref="ngModel" id="name" name="name" type="text" required="true">
+      <p class="error" *ngIf="nameref.invalid && nameref.dirty">Field {{ nameref.name }} is invalid</p>
+    </div>
+    <div class="input-form">
+      <label for="email" >Email:</label>
+      <input placeholder="somone@optimaje.com" [(ngModel)]="formData.email"  #emailref="ngModel" id="email" name="email" type="email"
+      required >
+      <p class="error" *ngIf="emailref.invalid && emailref.dirty">Field {{ emailref.name }} is invalid</p>
+    </div>
+    <div class="input-form">
+      <label for="phone" >Phone:</label>
+      <input placeholder="Phone 55-354-695" [(ngModel)]="formData.phone" #phoneref="ngModel" id="phone" name="phone" type="tel"
+      pattern="[0-9]{2}-[0-9]{3}-[0-9]{3}"
+      required >
+      <p class="error" *ngIf="phoneref.invalid && phoneref.dirty">Field {{ phoneref.name }} is invalid</p>
+    </div>
+    <div class="input-form">
+      <label for="pole" >Pole :</label>
+      <select [(ngModel)]="formData.pole" #poleref="ngModel" id="pole" name="pole" type="pole" required >
+        <option  defaultSelected value="project">Project</option>
+        <option value="marketing" >Marketing</option>
+      </select>
+      <p class="error" *ngIf="poleref.invalid && poleref.dirty">Field {{ poleref.name }} is invalid</p>
+    </div>
+    <div class="input-form">
+      <label for="dateOfAdmissions" >Date Admission :</label>
+      <input [(ngModel)]="formData.dateOfAdmission" #dateOfAdmissionref="ngModel" id="dateOfAdmissions" name="dateOfAdmissions" type="date" required />
+      <p class="error" *ngIf="dateOfAdmissionref.invalid && dateOfAdmissionref.dirty">Field {{ dateOfAdmissionref.name }} is invalid</p>
+    </div>
+    <button *ngIf="!formref.invalid" type="submit">Confirm</button>
+    <a routerLink="/consultants"><button type="button" class="button-clear">Cancel</button></a>
+  </form>
+</div>

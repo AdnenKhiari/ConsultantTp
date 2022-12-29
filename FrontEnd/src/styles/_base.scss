@@ -1,0 +1,30 @@
+
+@function white($alpha: 1){
+  @return rgba(255,255,255,$alpha);
+};
+@function black($alpha: 1){
+  @return rgba(50,50,50,$alpha);
+};
+@function orange($alpha: 1){
+  @return rgba(243,142,71,$alpha);
+};
+@function gray($alpha: 1){
+  @return rgba(238, 238, 238,$alpha);
+};
+@function success($alpha: 1){
+  @return rgba(5, 197, 101,$alpha);
+};
+@function error($alpha: 1){
+  @return rgba(217, 23, 1,$alpha);
+};
+@function success($alpha: 1){
+  @return rgba(5, 197, 101,$alpha);
+};
+
+$base_size: 16px;
+$h1_size: 4rem;
+$h2_size: 2.5rem;
+$h3_size: 1.5rem;
+$h4_size: 1rem;
+$h5_size: 0.9rem;
+$h6_size: 0.5rem;

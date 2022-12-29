@@ -1,0 +1,44 @@
+<div class="list-consultant">
+  <div class="list-header">
+<div>
+  <h1>List Consultants</h1>
+  <div>
+    <div class="input-form">
+      <label for="pole">Filtrer</label>
+      <select #poleref="ngModel"  ngModel name="pole" id="pole">
+        <option value="">All</option>
+        <option value="project">Projet</option>
+        <option value="Marketing">Marketing</option>
+      </select>
+    </div>
+    <a routerLink="add"><button>ADD NEW CONSULTANT</button></a>
+  </div>
+</div>
+  </div>
+  <table>
+    <thead>
+      <tr >
+        <th *ngFor="let h of header;let i=index" (click)="setActiveCurrent(h)">
+          <div class="header-table">
+            <p>{{ h.label }}</p> <img *ngIf="h.name === selected.name" [class]="'sort-img ' + (selected.direction ? 'rotate' : '') " src="/assets/images/upload.png" alt="">
+          </div>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let cs of filterParPole(poleref.value) | orderBy : selected.name : selected.direction ? true : false ;let i=index">
+        <td>{{ cs.name }}</td>
+        <td>{{ cs.email }}</td>
+        <td>{{ cs.phone }}</td>
+        <td>{{ cs.pole }}</td>
+        <td>{{ cs.dateOfAdmission }}</td>
+        <td>
+          <a [routerLink]="cs.id + '/edit'" ><img class="small-img" src="/assets/images/billet.png" alt=""></a>
+          <a [routerLink]="cs.id + '/delete'" ><img class="small-img" src="/assets/images/billet.png" alt=""></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <router-outlet></router-outlet>
+</div>

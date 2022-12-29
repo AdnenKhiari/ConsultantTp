@@ -1,0 +1,13 @@
+@import "src/styles/_base.scss";
+.add-edit-consultant{
+
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  a > img{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}
