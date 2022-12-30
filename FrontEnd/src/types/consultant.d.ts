@@ -4,7 +4,6 @@ declare interface consultant{
   phone?: string,
   pole?: string,
   email?: string,
-
   dateOfAdmission?: string,
 
 }

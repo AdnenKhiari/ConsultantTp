@@ -17,7 +17,7 @@ public class Consultant {
     private String phone;
     private String email;
     private String pole;
-    private Date date_admission;
+    private Date dateOfAdmission;
 }
 /*
 public class Consultant {

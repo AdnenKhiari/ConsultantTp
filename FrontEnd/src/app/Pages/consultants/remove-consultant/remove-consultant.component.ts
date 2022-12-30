@@ -17,5 +17,6 @@ export class RemoveConsultantComponent implements OnInit {
   }
   supprimerConsultant(){
     this.consultantservice.supprimerConsultant(this.id)
+    window.location.reload()
   }
 }

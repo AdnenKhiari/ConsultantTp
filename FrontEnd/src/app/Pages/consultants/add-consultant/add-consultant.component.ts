@@ -12,9 +12,7 @@ export class AddConsultantComponent implements OnInit {
   }
   ajouterConsultant(){
     return (c: consultant)=>{
-      console.log(this.consultantservice)
       this.consultantservice.addConsultant(c)
-      console.log(this.consultantservice.consultants)
     }
   }
 }

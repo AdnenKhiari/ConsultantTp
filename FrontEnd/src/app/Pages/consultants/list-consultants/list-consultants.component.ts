@@ -52,8 +52,14 @@ export class ListConsultantsComponent implements OnInit {
   }
   constructor(consultantService : ConsultantService){
     this.consultantService = consultantService
+
   }
+
   ngOnInit(): void {
-    this.consultants = this.consultantService.consultants
+   this.consultantService.getConsultant().subscribe( (val)=>{
+    this.consultants =val
+   }
+  )
+
   }
 }

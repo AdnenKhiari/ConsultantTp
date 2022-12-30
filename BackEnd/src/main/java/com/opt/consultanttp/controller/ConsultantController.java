@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/consultant")
 public class ConsultantController {
 
@@ -41,6 +42,7 @@ public class ConsultantController {
     }
     @PostMapping
     public Consultant addConsultant(@RequestBody Consultant s){
+        System.out.println("Add Consultant : Received " + s.toString() );
             Consultant result = consultantService.addConsultant(s);
             System.out.println(s.toString());
             return result;

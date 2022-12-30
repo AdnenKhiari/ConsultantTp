@@ -18,17 +18,20 @@ export class EditConsultantComponent {
   id: string = ""
   constructor(private consultantservice : ConsultantService,private route: ActivatedRoute){}
   ngOnInit(): void {
-    console.log("editer",this.consultantservice.consultants)
     this.route.params.subscribe((p)=>{
       this.id= p["id"];
+      console.log(this.id)
     })
-    this.defaultValues = this.consultantservice.consultants.find((c)=>{return c.id === this.id}) || {
-      phone: '',
-      name:'',
-      email:'',
-      pole:'',
-      dateOfAdmission:''
-    }
+    this.consultantservice.getConsultantById(this.id).subscribe((val)=>{
+      this.defaultValues = val || {
+        phone: '',
+        name:'',
+        email:'',
+        pole:'',
+        dateOfAdmission:''
+      }
+      console.log(this.defaultValues)
+    })
   }
   editerConsultant(){
     return (c: consultant)=>{

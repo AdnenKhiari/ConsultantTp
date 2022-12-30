@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { ConsultantsComponent } from './consultants.component';
 import { AddConsultantComponent } from './add-consultant/add-consultant.component';
 import { ConsultantRoutingModule } from './consultant-routing.module';
@@ -10,6 +10,7 @@ import { AddEditConsultantComponent } from './add-edit-consultant/add-edit-consu
 import { ConsultantService } from './consultant.service';
 import { OrderModule } from 'ngx-order-pipe';
 import { RemoveConsultantComponent } from './remove-consultant/remove-consultant.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -18,9 +19,10 @@ import { RemoveConsultantComponent } from './remove-consultant/remove-consultant
     CommonModule,
     ConsultantRoutingModule,
     FormsModule,
-    OrderModule
+    OrderModule,
+    HttpClientModule
   ],
-  providers: [ConsultantService],
+  providers: [ConsultantService,DatePipe],
   exports: [ConsultantsComponent]
 })
 export class ConsultantModule { }
